@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,700&display=swap');">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 1000px;
+            background-color: yellow;
+            margin: 0;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+        #box{
+            width: 50%;
+            height: 100%;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+        }
+    h1{
+        margin-top: 0;
+    }
+    img{
+        width: 100%;
+        display: block;
+    }
+    .blur{
+        filter: blur(5px);
+    }
+    </style>
+</head>
+<body>
+    <div id="box">
+    <h1 id="h1">Банан</h1> </h1>
+    <img class="blur" src="./old.jpg" data-src="./new.jpg">
+    
+    <p id="text1">Бана́н — название съедобных плодов культивируемых растений рода Банан</p>
+    <p id="text2">Размер, цвет и форма могут значительно различаться в зависимости от вида или сорта, но чаще всего они имеют продолговатую цилиндрическую или трёхгранную форму, выпрямленную либо закруглённую. Длина плода варьирует в пределах от 3 до 40 см, толщина — от 2 до 8 см. Цвет кожицы может быть жёлтым, зелёным, красным или даже серебристым. Мякоть белая, кремовая, жёлтая или оранжевая. В незрелом состоянии она твёрдая и клейкая, но по мере созревания становится мягкой и сочной[6].</p>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            let box = document.getElementById('box'),
+            counter = 0;
+        })
+        function lazyLoad(){
+        let lazy = document.querySelector('.blur');
+        if(lazy.hasAttribute('data-src')){
+            console.log('уииии');
+            let data = lazy.getAttribute('data-src')
+            lazy.setAttribute('src', data)
+            lazy.removeAttribute('data-src')
+         }
+        }
+        document.addEventListener('scroll', lazyLoad, false)
+        //     ++counter;
+        //     console.log('Оо прокрутили' + counter);
+        // }, false)
+    </script>
+</body>
+</html>
